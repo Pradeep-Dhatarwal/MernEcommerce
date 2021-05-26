@@ -3,7 +3,6 @@ const cloudinary = require("cloudinary");
 const auth = require("../middlewares/auth");
 const authAdmin = require("../middlewares/authAdmin");
 const fs = require("fs");
-const e = require("express");
 //uploading images on cloudinary
 cloudinary.config({
 	cloud_name: process.env.CLOUDINARY_NAME,

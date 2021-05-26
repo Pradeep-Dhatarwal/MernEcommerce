@@ -14,7 +14,7 @@ const categoryCtrl = {
 			const { name } = req.body;
 			if (!name)
 				return res
-					.status(500)
+					.status(400)
 					.json({ msg: "Didn't recieve a category name. Please try again." });
 			let exist = await Category.findOne({ name });
 			if (exist)
