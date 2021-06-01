@@ -12,17 +12,17 @@ class APIfeatures {
 		const excludedFields = ["page", "sort", "limit"];
 		excludedFields.forEach((el) => delete queryObj[el]);
 		let queryStr = JSON.stringify(queryObj);
-		queryStr.replace(/\b(gte|gt|lt|lte|regex)\b/g, (match) => "$" + match);
+		queryStr = queryStr.replace(/\b(gte|gt|lt|lte|regex)\b/g, (match) => "$" + match);
 		/* 
 		gt  = greater than
 		lt  = less than
 		gte = greater than equal
 		lte = less than equal
 		*/
-		this.JSON.find(JSON.parse(queryStr));
+		this.query.find(JSON.parse(queryStr));
 		return this;
 	}
-	Sorting() {
+	sorting() {
 		if (this.queryString.sort) {
 			const sortBy = this.queryString.sort.split(",").join(" ");
 			this.query = this.query.sort(sortBy);
@@ -31,7 +31,7 @@ class APIfeatures {
 		}
 		return this;
 	}
-	Paginating() {
+	paginating() {
 		const page = this.queryString.page * 1 || 1;
 		const limit = this.queryString.limit * 1 || 9;
 		const skip = (page - 1) * limit;
@@ -48,7 +48,7 @@ const productCtrl = {
 				.sorting()
 				.paginating();
 			const products = await features.query;
-			return res.json({
+			res.json({
 				status: "success",
 				result: products.length,
 				products: products,

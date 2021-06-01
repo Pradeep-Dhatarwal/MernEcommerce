@@ -1,6 +1,4 @@
-:root{
-  --shadow:#a7a7c967;
-}
+
 * {
   padding: 0;
   box-sizing: border-box;
@@ -20,7 +18,6 @@ code {
   min-height: 100vh;
   margin: 0 auto;
   box-shadow: 0 0 35px #eee;
-  height: 300vh;
 }
 a{
   text-decoration: none;
@@ -34,16 +31,24 @@ button{
   background: transparent;
   cursor: pointer;
 }
-
+img::after{
+  content: " ";
+  position: absolute;
+  top:0px;
+  left:0px;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(120deg, #eaee44,#33d0ff);
+}
 /* ---------------- Header ------------ */
 @import url("./components/headers/Header.css");
 
 /* ------------- Products -------------- */
 
-/* @import url("./components/mainpages/products/products.css"); */
+@import url("./components/mainpages/products/products.css");
 
 /* ---------------- Detail Product --------------- */
-/* @import url("./components/mainpages/detailProduct/detailProduct.css"); */
+@import url("./components/mainpages/ProductDetail/ProductDetail.css");
 
 /* ------------- Login/Register ----------------- */
 /* @import url("./components/mainpages/auth/login.css"); */

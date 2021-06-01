@@ -26,13 +26,13 @@ export default function Header() {
 					<Link to="/login">Login or Register</Link>
 				</li>
 				<li>
-					<img src={close} className="menu" alt="cart" width="30" />
+					<img src={close} className="menu" alt="cart" width="30" height="30"/>
 				</li>
 			</ul>
 			<div className="cart-icon">
 				<span>0</span>
         <Link to="/cart">
-				<img src={cart} alt="cart" width="30" />
+				<img src={cart} alt="cart" width="30" height="30" />
         </Link>
 			</div>
 		</header>

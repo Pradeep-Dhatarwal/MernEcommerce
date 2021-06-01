@@ -1,4 +1,6 @@
-
+:root{
+  --shadow:#a7a7c937;
+}
 header{
   min-height: 70px;
   width: 100%;
@@ -10,7 +12,7 @@ header{
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  box-shadow: 0px 20px 20px val(--shadow);
+  box-shadow: 0px 20px 20px var(--shadow);
   border-bottom: 1px solid #ddd;
   z-index: 9999;
   background-color: #fff;
