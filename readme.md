@@ -32,4 +32,4 @@
 
 ### `Run the project`
   
-  Open terminal in project folder and run the following command ```npm start```
+  Open terminal in project folder and run the following command ```npm run dev```
