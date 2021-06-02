@@ -40,6 +40,7 @@ router.post("/upload", auth, authAdmin, (req, res) => {
 			{ folder: "test" },
 			async (err, result) => {
 				if (err) {
+					removeTemp(files.file.tempFilePath);
 					throw err;
 				} else {
 					removeTemp(files.file.tempFilePath);

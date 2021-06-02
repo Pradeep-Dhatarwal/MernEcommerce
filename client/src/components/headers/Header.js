@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React, { memo, useContext } from "react";
 import { GlobalState } from "../../globalstate";
 import menu from "./logo/menu.svg";
 import close from "./logo/times.svg";
 import cart from "./logo/cart.svg";
 import { Link } from "react-router-dom";
 
-export default function Header() {
+ function Header() {
 	const value = useContext(GlobalState);
   
 	return (
@@ -38,3 +38,4 @@ export default function Header() {
 		</header>
 	);
 }
+export default memo(Header)

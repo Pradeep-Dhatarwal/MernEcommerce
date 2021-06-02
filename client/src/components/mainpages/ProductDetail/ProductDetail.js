@@ -19,7 +19,7 @@ function ProductDetail() {
 	if (productDetail.length === 0) return null;
 
 	return (
-		<div className="page"> 
+		<div className="page">
 			<div className="detail">
 				<img
 					src={productDetail.images.url}
@@ -42,16 +42,17 @@ function ProductDetail() {
 				</div>
 			</div>
 			<div className="similar-products">
-        <h2>Related Products</h2>
-        <div className="products">
-          {
-            products.map(product=>{
-              return product.category === productDetail.category? <ProductItem key={product._id} product={product}/>:null;
-            }
-            )
-          }
-        </div>
-      </div>
+				<h2>Related Products</h2>
+				<div className="products">
+					{products.map((product) => {
+						return product.category === productDetail.category ? (
+							product.title !== productDetail.title ? (
+								<ProductItem key={product._id} product={product} />
+							) : null
+						) : null;
+					})}
+				</div>
+			</div>
 		</div>
 	);
 }

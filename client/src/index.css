@@ -53,7 +53,7 @@ img::after {
 @import url("./components/mainpages/ProductDetail/ProductDetail.css");
 
 /* ------------- Login/Register ----------------- */
-/* @import url("./components/mainpages/auth/login.css"); */
+@import url("./components/mainpages/auth/login.css");
 
 /* ------------ Cart ------------------- */
 /* @import url("./components/mainpages/cart/cart.css"); */
@@ -129,7 +129,7 @@ img::after {
 		font-size: 1.5rem;
 	}
 	.page {
-		margin: 0px 10px;
+		margin: 10px 10px;
 	}
 	.similar-products {
 		margin-top: 50px;
