@@ -6,7 +6,7 @@ import ProductItem from "../utils/productItem/ProductItem";
 function ProductDetail() {
 	const params = useParams();
 	const state = useContext(GlobalState);
-	const [products] = state.ProductAPI.products;
+	const [products] = state.productAPI.products;
 	const [productDetail, setProductDetail] = useState([]);
 
 	useEffect(() => {

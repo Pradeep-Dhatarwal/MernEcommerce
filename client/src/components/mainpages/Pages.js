@@ -16,6 +16,7 @@ function Pages() {
         <Route path="/login" exact component={Login}/>
         <Route path="/register" exact component={Register}/>
         <Route path="/cart" exact component={Cart}/>
+        <Route path="/carts" exact component={Cart}/>
 
 
         <Route path="*" exact component={NotFound}/>

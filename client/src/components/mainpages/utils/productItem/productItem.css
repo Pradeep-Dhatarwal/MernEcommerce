@@ -54,11 +54,11 @@
 	letter-spacing: 2px;
 	padding: 6px;
 }
-#btn_buy {
+.btn_buy {
 	background: #555;
 	margin-right: 5px;
 }
-#btn_view {
+.btn_view {
 	background: teal;
 	margin-left: 5px;
 }
