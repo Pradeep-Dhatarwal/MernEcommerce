@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { GlobalState } from "../../../globalstate";
 import ProductItem from "../utils/productItem/ProductItem";
-
+import { motion } from "framer-motion"
 function ProductDetail() {
 	const params = useParams();
 	const state = useContext(GlobalState);
@@ -19,6 +19,7 @@ function ProductDetail() {
 	if (productDetail.length === 0) return null;
 
 	return (
+		<motion.div exit={{ opacity: 0 }}>
 		<div className="page">
 			<div className="detail">
 				<img
@@ -54,6 +55,7 @@ function ProductDetail() {
 				</div>
 			</div>
 		</div>
+		</motion.div>
 	);
 }
 

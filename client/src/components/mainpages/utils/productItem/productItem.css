@@ -45,7 +45,7 @@
 	display: flex;
 	justify-content: space-between;
 }
-.row_btn a {
+.row_btn a ,.row_btn button {
 	width: 50%;
 	text-align: center;
 	text-transform: uppercase;

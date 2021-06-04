@@ -110,6 +110,18 @@ const userCtrl = {
 			return res.status(500).json({ msg: err.message });
 		}
 	},
+	addCart: async (req,res)=>{
+		try {
+			const user = await Users.findById(req.user.id);
+			if (!user) return res.status(400).json({msg:"User doesn't exist."})
+			await Users.findOneAndUpdate({_id:req.user.id },{ cart:req.body.cart})
+			res.json({
+				msg:"Added to cart"
+			})
+		} catch (err) {
+			return res.status(500).json({ msg: err.message });
+		}
+	} 
 };
 const createAccessToken = (user) => {
 	return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1d" });

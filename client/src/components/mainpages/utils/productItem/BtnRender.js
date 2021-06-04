@@ -26,9 +26,9 @@ function BtnRender({ product, deleteProduct }) {
 				</>
 			) : (
 				<>
-					<Link className="btn_buy" to="/#!" onClick={buyHandler}>
+					<button className="btn_buy" onClick={buyHandler}>
 						Buy
-					</Link>
+					</button>
 					<Link className="btn_view" to={`/detail/${product._id}`}>
 						View
 					</Link>

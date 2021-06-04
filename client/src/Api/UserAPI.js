@@ -14,6 +14,8 @@ function UserAPI(token) {
 			});
 			setIsLoggedIn(true);
 			res.data.role === 1 ? setIsAdmin(true) : setIsAdmin(false);
+
+			setCart(res.data.cart)
 		} catch (err) {
 			alert(err.response.data.msg);
 		}
@@ -30,20 +32,26 @@ function UserAPI(token) {
 			return alert("Please login to continue buying!");
 		}
 		const check = cart.every((item) => {
-			return item.product._id !== product._id;
+			return item._id !== product._id;
 		});
-		console.log(check)
 		if (check) {
-			setCart([...cart, { product, quantity: 1 }]);
-		}else{
-			alert("This product has  been already added to the cart.")
+			setCart([...cart, { ...product, quantity: 1 }]);
+
+			await axios.patch('/user/addcart',{cart:[...cart, { ...product, quantity: 1 }]},{
+				headers :{
+					Authorization: token
+				}
+			})
+
+		} else {
+			alert("This product has  been already added to the cart.");
 		}
 	};
 	return {
 		isLoggedIn: [isLoggedIn, setIsLoggedIn],
 		isAdmin: [isAdmin, setIsAdmin],
-		cart:[cart,setCart],
-		addToCart: addToCart
+		cart: [cart, setCart],
+		addToCart: addToCart,
 	};
 }
 export default UserAPI;
