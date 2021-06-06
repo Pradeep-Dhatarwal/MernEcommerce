@@ -13,45 +13,31 @@ function Products({ isFirstMount }) {
 			animate: {
 				transition: {
 					staggerChildren: 0.1,
-					delayChildren: 0.1
+					ease: "easeInOut",
 				},
 			},
+			exit: {x: -500},
 		},
 		card: {
 			initial: {
 				opacity: 0,
 				x: 500,
 			},
-
 			animate: {
 				opacity: 1,
 				x: 0,
+			},
+			exit: {
+				opacity: 0,
+				x: -500,
 			},
 		},
-		page:{
-			initial: {
-				opacity: 0,
-				x: 500,
-			},
-			animate: {
-				opacity: 1,
-				x: 0,
-			},
-			exit:{
-				opacity: 0, x:-500
-			}
-		}
 	};
 	return (
-			<div className="page">
-				<AnimatePresence >
-
-				<motion.div
-					initial="initial"
-					animate="animate"
-					variants={variants.container}
-					className="products"
-					>
+			<motion.div className="page" 	initial="initial" 
+			animate="animate"
+			variants={variants.container}>
+				<div className="products">
 					{products.map((product) => {
 						return (
 							<motion.div key={product._id+"1"} variants={variants.card}>
@@ -62,10 +48,9 @@ function Products({ isFirstMount }) {
 							</motion.div>
 						);
 					})}
-				</motion.div>
-			</AnimatePresence>
+				</div>
 				{products.length === 0 && <Loading />}
-			</div>
+			</motion.div>
 	);
 }
 

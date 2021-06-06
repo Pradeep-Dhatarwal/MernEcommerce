@@ -1,8 +1,9 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, memo } from "react";
 import { GlobalState } from "../../../globalstate";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import axios from "axios";
+import Paypal from "./Paypal";
 
 function Cart() {
 	const state = useContext(GlobalState);
@@ -51,10 +52,9 @@ function Cart() {
 	};
 	const removeProduct = async (id) => {
 		if (window.confirm("Do you really want to remove this item")) {
-			let removed = cart.filter((item) => item._id !== id);
-
-			setCart([...removed]);
-			addToCart();
+		let removed = cart.filter((item) => item._id !== id);
+		setCart([...removed]);
+		addToCart();
 		}
 	};
 	if (cart.length === 0)
@@ -77,7 +77,7 @@ function Cart() {
 					ease: "easeInOut",
 				},
 			},
-			exit: {},
+			exit: {x: -500},
 		},
 		card: {
 			initial: {
@@ -94,7 +94,6 @@ function Cart() {
 			},
 		},
 	};
-
 	return (
 		<motion.div
 			className="page"
@@ -107,6 +106,7 @@ function Cart() {
 				<motion.div
 					variants={variants.card}
 					className="detail cart"
+					exit={{opacity:0, x : -500}}
 					key={product._id}
 				>
 					<img
@@ -138,10 +138,10 @@ function Cart() {
 			))}
 			<div className="total detail">
 				<h3>Total:$ {total} </h3>
-				<Link to="/#!">Pay Now</Link>
+				<Paypal total={total} />
 			</div>
 		</motion.div>
 	);
 }
 
-export default Cart;
+export default memo(Cart);

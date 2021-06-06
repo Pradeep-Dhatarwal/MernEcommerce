@@ -14,30 +14,20 @@ function Pages() {
   const state = useContext(GlobalState)
   const [isLoggedIn] = state.userAPI.isLoggedIn;
 
-  const [isFirstMount, setIsFirstMount] = useState(true);
   const location = useLocation();
-  const history = useHistory();
 
-  React.useEffect(() => {
-    const unlisten = history.listen(() => {
-      isFirstMount && setIsFirstMount(false);
-    });
 
-    return unlisten;
-  }, [history, isFirstMount]);
 
   return (
     <div>
       <AnimatePresence exitBeforeEnter>
       <Switch location={location} key={location.pathname}>
-        <Route path="/" exact  component={(props) => (<Products isFirstMount={isFirstMount} {...props} />)}/>
+        <Route path="/" exact  component={Products}/>
         <Route path="/detail/:id" exact component={ProductDetail}/>
         <Route path="/login" exact component={isLoggedIn?NotFound:Login}/>
         <Route path="/register" exact component={isLoggedIn?NotFound:Register}/>
         <Route path="/cart" exact component={Cart}/>
         <Route path="/carts" exact component={Cart}/>
-
-
         <Route path="*" exact component={NotFound}/>
       </Switch>
       </AnimatePresence>
