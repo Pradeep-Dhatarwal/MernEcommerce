@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { GlobalState } from "../../../globalstate";
 import ProductItem from "../utils/productItem/ProductItem";
 import Loading from "../utils/Loading/Loading";
-import { motion ,AnimatePresence} from "framer-motion";
+import { motion} from "framer-motion";
 
 function Products({ isFirstMount }) {
 	const state = useContext(GlobalState);

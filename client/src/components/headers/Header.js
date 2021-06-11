@@ -8,8 +8,8 @@ import axios from "axios";
 
 function Header(props) {
 	const state = useContext(GlobalState);
-	const [isLoggedIn, setIsLoggedIn] = state.userAPI.isLoggedIn;
-	const [isAdmin, setIsAdmin] = state.userAPI.isAdmin;
+	const [isLoggedIn] = state.userAPI.isLoggedIn;
+	const [isAdmin] = state.userAPI.isAdmin;
 	const [cart, setCart] = state.userAPI.cart;
 
 	const logoutUser = async (props) => {
@@ -35,7 +35,7 @@ function Header(props) {
 		return (
 			<>
 				<li>
-					<Link to="/history">Create Products</Link>
+					<Link to="/history">History</Link>
 				</li>
 				<li>
 					<Link to="/" onClick={logoutUser}>

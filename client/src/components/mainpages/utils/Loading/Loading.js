@@ -3,26 +3,20 @@ import "./Loading.css";
 function Loading() {
 	return (
 		<div className="page">
-			<div className="load-Page">
-				<div className="loader">
-					<div>
-						<div>
-							<div>
-								<div>
-									<div>
-										<div>
-											<div>
-												<div></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+			<div className="loader">
 
-				<h2> Loading</h2>
+			<div className="lds-grid">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<h2> Loading</h2>
 			</div>
 		</div>
 	);
